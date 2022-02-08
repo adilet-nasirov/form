@@ -13,7 +13,7 @@
   font-size: large;
   border: 1px solid yellowgreen;
   border-radius: 20px;
-  background-color: yellowgreen;
+  background-color: rgb(255, 255, 255);
   padding: 30px;
   box-shadow: 0px 0px 21px 1px rgba(0, 0, 0, 0.75);
 }

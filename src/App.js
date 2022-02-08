@@ -1,6 +1,15 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import React from "react";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -30,30 +39,53 @@ class App extends React.Component {
         <div className="container">
           <h1>Tip Calculator</h1>
           <p>How much was your bill?</p>
-          <label htmlFor="#">$</label>
-          <input
+          {/* <label htmlFor="#">$</label> */}
+          <TextField id="outlined-basic" label="$" variant="outlined" />
+          {/* <input
             type="number"
             name="bill"
             placeholder="Bill amount"
             onChange={this.changeState}
-          />
+          /> */}
           <p>How was your service?</p>
-          <select name="serviceLevel" id="serve" onChange={this.changeState}>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+                Service level
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                // value={this.state.serviceLevel}
+                label="Service level"
+                onChange={this.changeState}
+              >
+                <MenuItem value={10}>Normal 10%</MenuItem>
+                <MenuItem value={20}>Good 20%</MenuItem>
+                <MenuItem value={30}>Great 30%</MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+          {/* <select name="serviceLevel" id="serve" onChange={this.changeState}>
             <option value="30">Great 30%</option>
             <option value="20">Good 20%</option>
             <option value="10">Normal 10%</option>
-          </select>
+          </select> */}
           <p>How many people are sharing the bill?</p>
-          <input
+          <TextField id="outlined-basic" label="People" variant="outlined" />
+
+          {/* <input
             onChange={this.changeState}
             type="number"
             placeholder="number of people"
             name="numOfPeople"
-          />
-          <label htmlFor="">People</label>
-          <button className="btn" onClick={this.calculateTips}>
-            Calculate
-          </button>
+          /> */}
+          {/* <label htmlFor="">People</label> */}
+          <Stack direction="column" spacing={2} m="20px">
+            <Button variant="contained" onClick={this.calculateTips}>
+              Calculate
+            </Button>
+          </Stack>
 
           <p
             style={
