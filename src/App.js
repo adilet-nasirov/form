@@ -9,6 +9,8 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
+import { typography } from "@mui/system";
 
 class App extends React.Component {
   constructor() {
@@ -37,17 +39,27 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="container">
-          <h1>Tip Calculator</h1>
-          <p>How much was your bill?</p>
+          <Typography variant="h4">Tip Calculator</Typography>
+          <Typography variant="h5" my={2}>
+            How much was your bill?
+          </Typography>
           {/* <label htmlFor="#">$</label> */}
-          <TextField id="outlined-basic" label="$" variant="outlined" />
+          <TextField
+            id="outlined-basic"
+            label="$"
+            variant="outlined"
+            onChange={this.changeState}
+            name="bill"
+          />
           {/* <input
             type="number"
             name="bill"
             placeholder="Bill amount"
             onChange={this.changeState}
           /> */}
-          <p>How was your service?</p>
+          <Typography variant="h5" my={2}>
+            How was your service?
+          </Typography>
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">
@@ -59,6 +71,7 @@ class App extends React.Component {
                 // value={this.state.serviceLevel}
                 label="Service level"
                 onChange={this.changeState}
+                name="serviceLevel"
               >
                 <MenuItem value={10}>Normal 10%</MenuItem>
                 <MenuItem value={20}>Good 20%</MenuItem>
@@ -71,8 +84,16 @@ class App extends React.Component {
             <option value="20">Good 20%</option>
             <option value="10">Normal 10%</option>
           </select> */}
-          <p>How many people are sharing the bill?</p>
-          <TextField id="outlined-basic" label="People" variant="outlined" />
+          <Typography variant="h5" my={2}>
+            How many people are sharing the bill?
+          </Typography>
+          <TextField
+            id="outlined-basic"
+            label="People"
+            variant="outlined"
+            name="numOfPeople"
+            onChange={this.changeState}
+          />
 
           {/* <input
             onChange={this.changeState}
@@ -81,8 +102,8 @@ class App extends React.Component {
             name="numOfPeople"
           /> */}
           {/* <label htmlFor="">People</label> */}
-          <Stack direction="column" spacing={2} m="20px">
-            <Button variant="contained" onClick={this.calculateTips}>
+          <Stack direction="column" spacing={5} m="40px">
+            <Button p={2} variant="contained" onClick={this.calculateTips}>
               Calculate
             </Button>
           </Stack>
